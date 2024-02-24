@@ -15,12 +15,12 @@ func MakeCellGrid(boardSize int) [][]*Cell {
 }
 
 func MakePointGrid(boardSize int, cellGrid [][]*Cell) [][]*Point {
-	grid := make([][]*Point, boardSize)
+	grid := make([][]*Point, boardSize+1)
 
 	for row := range grid {
-		newRow := make([]*Point, boardSize)
+		newRow := make([]*Point, boardSize+1)
 		for col := range newRow {
-			var point = NewPoint([2]int{row, col}, cellGrid)
+			var point = NewPoint([2]int{row, col}, cellGrid, boardSize)
 			newRow[col] = &point
 		}
 		grid[row] = newRow
