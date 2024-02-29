@@ -25,6 +25,7 @@ func (pointGrid *PointGrid) GetAt(coords [2]int) *Point {
 	return (*pointGrid)[coords[0]][coords[1]]
 }
 
+//todo need to add some validation for the size of the walls
 func (pointGrid *PointGrid) CreateWall(startPointCoords [2]int, endPointCoords [2]int) error {
 	wallDirection := getDirection(startPointCoords, endPointCoords)
 
@@ -105,7 +106,7 @@ func getSharedCell(point1 *Point, point2 *Point) ([]*Cell, []types.Direction, er
 	for i := range point1.SurroundingCells {
 		for y := range point2.SurroundingCells {
 			if point1.SurroundingCells[i] == point2.SurroundingCells[y] {
-				sharedDirections = append(sharedDirections, types.Direction(i)) //this direction stuff is wrong probably need to do something else to figure it out
+				sharedDirections = append(sharedDirections, types.Direction(i))
 				sharedCells = append(sharedCells, point1.SurroundingCells[i])
 			}
 		}

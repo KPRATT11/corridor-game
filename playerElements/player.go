@@ -11,15 +11,14 @@ type Player struct {
 	Walls int
 }
 
-func NewPlayer(boardSize int, top bool, walls int) Player {
-	if top {
+func NewPlayer(boardSize int, player1 bool, walls int) Player {
+	if player1 {
 		return Player{Position: [2]int{0, boardSize / 2}, Walls: walls}
 	} else {
 		return Player{Position: [2]int{boardSize - 1, boardSize / 2}, Walls: walls}
 	}
 }
 
-//TODO test this function
 func (player *Player) UpdatePosition(direction types.Direction, cellGrid gridElements.CellGrid) error {
 	switch direction {
     case types.North:
