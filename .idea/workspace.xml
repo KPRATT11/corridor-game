@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f43ad3-2c64-4c83-b5dc-f693011b0adb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gridElements/gridUtilities.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gridElements/point.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathFinding/analyzedCellTree.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathFinding/pathFinding_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gridElements/cell.go" beforeDir="false" afterPath="$PROJECT_DIR$/gridElements/cell.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridElements/cellGrid.go" beforeDir="false" afterPath="$PROJECT_DIR$/gridElements/cellGrid.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridElements/point.go" beforeDir="false" afterPath="$PROJECT_DIR$/gridElements/point.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridElements/pointGrid_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/gridElements/pointGrid_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathFinding/pathFinding.go" beforeDir="false" afterPath="$PROJECT_DIR$/pathFinding/pathFinding.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +25,15 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+  </component>
   <component name="GOROOT" url="file:///opt/homebrew/opt/go/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///opt/homebrew/opt/go/libexec/src/testing/testing.go" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -34,7 +42,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2ccumy6LpwZgMP2RdkPJQSOUzxX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,51 +53,143 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build main.go.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build main.go.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestPlayer_UpdatePosition in corridor-game/playerElements.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestPlayer_UpdatePosition2 in corridor-game/playerElements.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestPointGrid_CreateWall in corridor-game/gridElements.executor&quot;: &quot;Debug&quot;,
+    &quot;Go Test.TestPointGrid_CreateWall2 in corridor-game/gridElements.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.Test_findDistanceBetweenPoints in corridor-game/pathFinding.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.player_test.go.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.pointGrid_test.go.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/keegan.pratt/Documents/personal/go-playground/corridor-game&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   },
-  "keyToStringList": {
-    "HarpoonJumpList": [
-      "/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/gridElements/cell.go",
-      "/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/types/types.go",
-      "/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/gridElements/point.go",
-      "/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/main.go",
-      "/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/gridElements/gridUtilities.go"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;HarpoonJumpList&quot;: [
+      &quot;/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/pathFinding/pathFinding_test.go&quot;,
+      &quot;/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/pathFinding/pathFinding.go&quot;,
+      &quot;/Users/keegan.pratt/Documents/personal/go-playground/corridor-game/pathFinding/analyzedCellTree.go&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="Go Test.Test_findDistanceBetweenPoints in corridor-game/pathFinding">
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="options" />
+      <option name="profiles" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build pathFinding.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="corridor-game" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <package value="corridor-game" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
+      <filePath value="$PROJECT_DIR$/pathFinding/pathFinding.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestPlayer_UpdatePosition in corridor-game/playerElements" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="corridor-game" />
+      <working_directory value="$PROJECT_DIR$/playerElements" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="corridor-game/playerElements" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestPlayer_UpdatePosition\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestPlayer_UpdatePosition2 in corridor-game/playerElements" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="corridor-game" />
+      <working_directory value="$PROJECT_DIR$/playerElements" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="corridor-game/playerElements" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestPlayer_UpdatePosition2\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_findDistanceBetweenPoints in corridor-game/pathFinding" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="corridor-game" />
+      <working_directory value="$PROJECT_DIR$/pathFinding" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="corridor-game/pathFinding" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_findDistanceBetweenPoints\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="player_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="corridor-game" />
+      <working_directory value="$PROJECT_DIR$/playerElements" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/playerElements/player_test.go" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Test.Test_findDistanceBetweenPoints in corridor-game/pathFinding" />
+        <item itemvalue="Go Build.go build pathFinding.go" />
+        <item itemvalue="Go Test.TestPlayer_UpdatePosition2 in corridor-game/playerElements" />
+        <item itemvalue="Go Test.player_test.go" />
+        <item itemvalue="Go Test.TestPlayer_UpdatePosition in corridor-game/playerElements" />
       </list>
     </recent_temporary>
   </component>
@@ -113,23 +215,49 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/gridElements/point.go</url>
-          <line>2</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/gridElements/gridUtilities.go</url>
-          <line>26</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+        <line-breakpoint type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/main.go</url>
           <line>7</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/gridElements/cell.go</url>
+          <line>40</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/gridElements/pointGrid.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/gridElements/pointGrid.go</url>
+          <line>87</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/gridElements/pointGrid.go</url>
+          <line>70</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/gridElements/pointGrid_test.go</url>
+          <line>47</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/playerElements/player_test.go</url>
+          <line>37</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GoTestRunConfiguration">
+        <watch expression="middlePointCoords" />
+        <watch expression="*(*&quot;corridor-game/gridElements.Cell&quot;)(1374390297256)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

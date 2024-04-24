@@ -15,7 +15,7 @@ func TestPointGrid_CreateWall(t *testing.T) {
 		t.Error(err)
 	}
 
-	cell := cellGrid.GetAt([2]int{0, 1})
+	cell, err := cellGrid.GetAt([2]int{0, 1})
 	if cell.SurroundingWalls[types.South].Exists != true {
 		t.Error("expected south wall to be true")
 	}
@@ -24,7 +24,7 @@ func TestPointGrid_CreateWall(t *testing.T) {
 		t.Error("expected wall ending to be west")
 	}
 
-	cell2 := cellGrid.GetAt([2]int{0, 2})
+	cell2, err := cellGrid.GetAt([2]int{0, 2})
 	if cell2.SurroundingWalls[types.South].Exists != true {
 		t.Error("expected south wall to be true")
 	}
